@@ -8,18 +8,19 @@
 #define P1 10079
 #define P2 10631
 #define Pr 11
-#define P3 31
+#define P3 31 
 
 void gen(int src1[], int src2[])
 {
     src1[0] = src2[0] = 0;
     int seed1 = Pr, seed2 = Pr*Pr*Pr;
-    for(int i=1; i<N; ++i) {
+    for(int i=1; i<N; ++i)
+    {
         src1[i] = src1[i-1] + (seed1 % P1) % P3;
         src2[i] = src2[i-1] + (seed2 % P2) % P3;
-        //printf("%d, %d, %d\n",src1[i],src2[i],i);
-        seed1 = (seed1 * Pr * Pr * Pr * Pr) % P1;
-        seed2 = (seed2 * Pr * Pr * Pr) % P2;
+	//printf("%d, %d, %d\n",src1[i],src2[i],i);
+	seed1 = (seed1 * Pr * Pr * Pr * Pr) % P1;
+	seed2 = (seed2 * Pr * Pr * Pr) % P2;
     }
     return;
 }
